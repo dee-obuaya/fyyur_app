@@ -1,6 +1,15 @@
 import os
+import random
+import string
 
-SECRET_KEY = os.urandom(32)
+
+def id_generator(size=32, chars=string.ascii_uppercase + string.digits):
+    return ''.join(random.choice(chars) for _ in range(size))
+
+
+SECRET_KEY = id_generator()
+
+# SECRET_KEY = os.urandom(32)
 # Grabs the folder where the script runs.
 basedir = os.path.abspath(os.path.dirname(__file__))
 
